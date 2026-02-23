@@ -230,5 +230,5 @@ One the lab open, open the notebook and select "Lab 1" as the preferred kernel.
 
 <img src="images/lab17.png" />
 
-
+git s
 
