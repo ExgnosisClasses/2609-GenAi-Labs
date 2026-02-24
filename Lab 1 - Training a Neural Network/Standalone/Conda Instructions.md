@@ -11,7 +11,6 @@ It will default to the `(base)` environment
 In this shell, create the `lab1` directory and locate to it.
 
 ```bash
-(base) D:\lab1>c:
 (base) C:\Users\micro>mkdir \lab1
 (base) C:\Users\micro>cd \lab1
 (base) C:\lab1>
@@ -230,5 +229,4 @@ One the lab open, open the notebook and select "Lab 1" as the preferred kernel.
 
 <img src="images/lab17.png" />
 
-git s
 

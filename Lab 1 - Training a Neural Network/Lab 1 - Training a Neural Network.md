@@ -6,6 +6,8 @@ You will not be training a NN from scratch, instead, you will just be fine-tunin
 
 Even though the model is simple and the training dataset is relatively small, the model can take a long time to train. In the tests run by the instructor on a similar machine to the lab VMs, it took about 30 minutes to train.
 
+In the folders, there are two versions of the notebooks. One is the notebook with the code, but the other than has "with-output" in the name is a copy of the notebook and its output when the instructor was testing it.
+
 ## Lab Versions
 
 There are two versions of the lab. Each is supplied as a Jupyter notebook that you can run in the provided VMs or in your own development environment
@@ -21,8 +23,8 @@ The instructions for setting up the environment are in the file
 
 ### Colab
 
-This is a modifed version that runs as a colob notebook
+This is a modified version that runs as a colab notebook
 
 
-
+##
 
