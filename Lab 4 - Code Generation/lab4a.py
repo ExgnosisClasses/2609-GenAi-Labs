@@ -1,5 +1,3 @@
-# Lab 3a
-# Test API
 
 from openai import OpenAI
 

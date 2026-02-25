@@ -14,4 +14,42 @@ You can continue to use the same conda environment you used in lab 3/
 
 ## Part 1: Unstructured
 
-This 
+Just like in the previous lab, run the following scrip `lab4a.py` in the conda console
+
+```python
+
+from openai import OpenAI
+
+# Create client
+client = OpenAI()
+
+prompt="Write a simple Python Flask hello world application."
+# Simple prompt
+response = client.responses.create(
+    model="gpt-4.1-mini",
+    input=prompt
+)
+
+print(response.output_text)
+
+```
+The model cannot implement requirements you did not specify
+
+Look at the output and determine
+- Does it specify Python version?
+- Does it include error handling?
+- Does it mention security?
+- Does it follow PEP standards?
+- Does it pin dependencies?
+- Does it include input validation?
+
+
+## Refinement 1
+
+Add a clear statement of the programming problem
+
+```Python
+
+
+```
+
