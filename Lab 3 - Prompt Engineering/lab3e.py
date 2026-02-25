@@ -1,4 +1,4 @@
-rom openai import OpenAI
+from openai import OpenAI
 
 # Create client
 client = OpenAI()
