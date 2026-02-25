@@ -205,3 +205,22 @@ for temp in [0.0, 0.5, 1.0, 1.5]:
     print(response.output_text)
 ```
 
+## Challenge 
+
+Modify one of the scripts to do the following:
+
+Prompt: "Write a 3-paragraph science fiction story.
+
+Use the following parameters
+
+- temperature=1.0
+- top_p=0.9
+- max_output_tokens=60
+
+Then change:
+
+temperature=0.1
+
+And compare the output.
+
+## End Lab
