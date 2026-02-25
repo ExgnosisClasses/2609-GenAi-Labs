@@ -223,4 +223,48 @@ temperature=0.1
 
 And compare the output.
 
+## Structured output
+
+In this script, we specify in the prompt how we want the output to look and the data integrity constraints for the output
+
+```python
+from openai import OpenAI
+import json
+
+client = OpenAI()
+
+prompt = """
+
+"List all Canadian provinces and their current population."
+Return a JSON object with this structure:
+
+{
+  "provinces": [
+    {
+      "name": "string",
+      "population": integer
+    }
+  ]
+}
+
+Constraints:
+- population must be a numeric integer
+- no additional fields
+- only valid JSON output
+- no explanations
+"""
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0.2
+)
+
+print(response.choices[0].message.content)
+
+```
+
+Run the script and confirm that the output is properly structured
+
+
 ## End Lab
