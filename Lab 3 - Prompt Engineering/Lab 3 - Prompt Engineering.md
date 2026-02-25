@@ -63,3 +63,145 @@ echo %OPENAI_API_KEY%
 
 <img src="images/lab3-5.png" />
 
+## Run the API test
+
+Move the script `lab3a.py` into the lab3 directory. The script shown here
+
+```Python
+# Lab 3a
+# Test API
+
+from openai import OpenAI
+
+# Create client
+client = OpenAI()
+
+# Simple prompt
+response = client.responses.create(
+    model="gpt-4.1-mini",
+    input="Explain what a REST API is in one paragraph."
+)
+
+print(response.output_text)
+```
+
+At the console, run the script as shown and confirm the output.
+
+<img src="images/lab3-6.png" />
+
+Once this is done, you are ready to continue with the lab
+
+## Temperature
+
+
+Recall from the lectures that the temperature determines the amount of "creativity" in the response.
+
+The following script, `lab4b.py` allows you to experiment with working at different temperatures
+
+
+```Python
+from openai import OpenAI
+
+# Create client
+client = OpenAI()
+
+prompt= "Write a surreal dream-like paragraph about a city made of glass."
+
+response = client.responses.create(
+    model="gpt-4.1-mini",
+    input=prompt,
+    temperature=0
+)
+
+print(response.output_text)
+```
+
+Run this script the same way you did the previous. Experiment with different values of temperature.  Temperature can range from 0 to 2. Experiment with settings like:
+
+- 0.0	Predictable, safe
+- 0.7	Balanced
+- 1.2	Creative, marketing style
+
+If you try with a temperature of 2, you will probably get gibberish.
+
+
+You can also run the following script `lab3c` to see a comparison of output at different temperatures.
+
+```Python
+from openai import OpenAI
+
+# Create client
+client = OpenAI()
+
+prompt = "Invent a completely new programming language and describe its philosophy."
+for temp in [0.0, 0.5, 1.0, 1.5]:
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=prompt,
+        temperature=temp,
+        max_output_tokens=200
+    )
+    print(f"\n--- Temperature: {temp} ---")
+    print(response.output_text)
+```
+
+## Working with top-p
+
+Recall from the lectures that 
+- Lower top_p → narrow vocabulary choice
+- Higher top_p → broader vocabulary
+
+In practice, most production systems tune either temperature OR top_p, not both aggressively.
+
+Just like you did with temperature, run the following script `lab3d.py` with different values of `top-p`
+
+Ranges for top-p: 0.0 ≤ top_p ≤ 1.0
+- 1.0 → no nucleus filtering (default behavior)
+- Lower values → narrower probability mass selection
+- Very low values → highly constrained output
+
+
+```Python
+from openai import OpenAI
+
+# Create client
+client = OpenAI()
+
+prompt= "Write a surreal dream-like paragraph about a city made of glass."
+
+response = client.responses.create(
+    model="gpt-4.1-mini",
+    input=prompt,
+    temperature=0.8,
+    top_p=0.3  # Try 0.3 vs 1.0
+    
+)
+
+print(response.output_text)
+
+```
+
+<img src="images/top-p.png" />
+
+## MAX tokens
+
+We can also constrain output with the max tokens.  To see this, run `lab3c.py` with different values of max tokens. Try values like 50, 100 and 400
+
+```Python
+from openai import OpenAI
+
+# Create client
+client = OpenAI()
+
+prompt = "Invent a completely new programming language and describe its philosophy."
+for temp in [0.0, 0.5, 1.0, 1.5]:
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=prompt,
+        temperature=temp,
+        max_output_tokens=120
+    )
+    print(f"\n--- Temperature: {temp} ---")
+    print(response.output_text)
+```
+
