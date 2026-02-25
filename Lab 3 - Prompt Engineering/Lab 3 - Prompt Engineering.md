@@ -4,6 +4,14 @@ In this lab you will experiment with temperature, top-p and maximum output setti
 
 Note that you can't change these settings in the interactive mode, but you can change them in the API calls
 
+## Repository
+
+Clone the lab repository into the VM. This is so you can cut and past the Python programs without having to type them in an IDE. You will be asked to modify the programs at various points in the lab, but you can even do this in notepad or another text editor.
+
+Visual Studio code is installws, but you may want to add the Python extension to make the Python code more readable.
+
+**Do not run the examples from Visual Studio code, the builtin terminal does not use the configured conda environment**
+
 ## Conda Setup
 
 Open a conda terminal from the icon on the taskbar.
